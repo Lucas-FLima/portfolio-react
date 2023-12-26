@@ -3,25 +3,14 @@ import Apresentation from "@/components/apresentation";
 import ApresentationMobile from "@/components/apresentationMobile";
 import NavBar from "@/components/navBar";
 import NavMobileContainer from "@/components/navMobileContainer";
-import { useState } from "react";
 import Image from "next/image";
 import Sobre from "@/components/Sobre";
 
 export default function Home() {
-  const [open, setOpen] = useState<boolean>(false);
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
   return (
-    <main className="flex relative justify-center flex-col items-center">
-      <NavBar open={handleOpen} />
-      <NavMobileContainer open={open} onClose={handleClose} />
+    <main className="flex relative justify-center flex-col items-center px-2">
+      <NavBar />
+      <NavMobileContainer />
       <section className="mt-48 w-full flex flex-col justify-center items-center">
         <h3 className="text-2xl md:text-3xl text-green-400">Olá! Eu sou o</h3>
         <section>
@@ -32,7 +21,7 @@ export default function Home() {
             <ApresentationMobile />
           </div>
         </section>
-        <h3 className="text-[30px] md:text-[40px] text-green-400 mt-2">
+        <h3 className="text-[25px] md:text-[40px] text-green-400 mt-2">
           Desenvolvedor Full Stack
         </h3>
         <h3 className="text-[20px] md:text-[24px] text-[#B9B9B9] font-light italic text-center mt-2">
@@ -78,7 +67,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-20 w-full flex items-center justify-center flex-col md:flex-row ">
+      <section className="mt-20 max-w-full w-full flex items-center justify-center flex-col md:flex-row ">
         <Sobre />
       </section>
     </main>

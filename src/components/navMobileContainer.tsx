@@ -1,29 +1,33 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import React, { useContext } from "react";
 
 type Props = {
   open: boolean;
   onClose: () => void;
 };
 
-export default function NavMobileContainer({ open = true, onClose }: Props) {
+import { NavMobileContext } from "@/context/NavMobile";
+
+export default function NavMobileContainer() {
+  const { open, setOpen } = useContext(NavMobileContext);
   const [localState, setLocalState] = useState<String>("sobre");
 
   const handleConfirmOption = (option: string) => {
     setLocalState(option);
-    onClose();
+    setOpen(false);
   };
 
   return (
     <div
       className={cn(
-        "min-h-screen h-full w-full fixed bg-[#161616] z-50",
+        "min-h-screen h-full w-full fixed top-0 bg-[#161616] z-50",
         !open && "hidden"
       )}
     >
       <div className="flex justify-end items-center p-4">
-        <button onClick={onClose}>
+        <button onClick={() => setOpen(false)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-8 w-8 text-[#B9B9B9] hover:text-[#3CE37C] transition-colors duration-[.8s] ease-in-out"

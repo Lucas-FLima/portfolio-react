@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { NavMobileProvider } from "@/context/NavMobile";
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700", "300", "400"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "300", "400"],
+});
 
 export const metadata: Metadata = {
   title: "Lucas Lima | Developer",
@@ -19,7 +23,7 @@ export default function RootLayout({
       <body
         className={`${poppins.className} min-h-screen h-[1500px] bg-[#0D0D0D]`}
       >
-        {children}
+        <NavMobileProvider>{children}</NavMobileProvider>
       </body>
     </html>
   );

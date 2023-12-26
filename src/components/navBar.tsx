@@ -3,9 +3,12 @@
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
-export default function NavBar({open}: {open: () => void}) {
+import { NavMobileContext } from "@/context/NavMobile";
+
+export default function NavBar() {
+  const { setOpen } = useContext(NavMobileContext);
   const scrolled = useScrollTop();
   const [localState, setLocalState] = useState<String>("sobre");
 
@@ -17,7 +20,7 @@ export default function NavBar({open}: {open: () => void}) {
       )}
     >
       <Image src={"/logo.svg"} className="w-[45px] h-[45px] md:w-[70px] md:h-[70px]" width={70} height={70} alt="Logo"
-        onClick={open}
+        onClick={() => setOpen(true)}
       />
 
       <nav className="md:block hidden">
