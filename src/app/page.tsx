@@ -5,6 +5,10 @@ import NavBar from "@/components/navBar";
 import NavMobileContainer from "@/components/navMobileContainer";
 import Image from "next/image";
 import Sobre from "@/components/Sobre";
+import SoftSkills from "@/components/SoftSkills";
+import HardSkills from "@/components/HardSkills";
+import MetasObj from "@/components/MetasObj";
+import Projetos from "@/components/Projetos";
 
 export default function Home() {
   return (
@@ -69,6 +73,19 @@ export default function Home() {
 
       <section className="mt-20 max-w-full w-full flex items-center justify-center flex-col md:flex-row ">
         <Sobre />
+      </section>
+
+      <section className="mt-10 max-w-[1140px] w-full flex items-start justify-start flex-col">
+        <SoftSkills />
+      </section>
+      <section className="mt-10 max-w-[1140px] w-full flex items-start justify-start flex-col">
+        <HardSkills />
+      </section>
+      <section className="mt-10 max-w-[1140px] w-full flex items-start justify-start flex-col">
+        <MetasObj />
+      </section>
+      <section className="mt-10 max-w-[1140px] w-full flex items-start justify-start flex-col">
+        <Projetos />
       </section>
     </main>
   );

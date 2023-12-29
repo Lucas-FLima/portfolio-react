@@ -11,6 +11,9 @@ const config: Config = {
       boxShadow: {
         navBar: "0px 4px 4px 0px rgba(0, 0, 0, 0.38)",
       },
+      backgroundImage: {
+        "cardBgDefault": "url('/backCardDefault.png')",
+      }
     },
   },
   plugins: [],
