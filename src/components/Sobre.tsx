@@ -1,15 +1,19 @@
 import Image from "next/image";
 
 const myInformations = [
-  { title: "24 anos." },
+  { title: "Tenho 25 anos." },
   { title: "Moro em Campo Grande, MS." },
-  { title: "Sou desenvolvedor fullstack na Resoluti." },
   {
-    title: "Estou no meu terceiro semestre do curso de Engenharia de Software.",
+    title:
+      "Atualmente trabalho como Analista de Automação Júnior na Nelson Wilians Advogados.",
   },
   {
     title:
-      "Casado, focado na minha família e em construir uma carreira de sucesso.",
+      "Tenho foco no aprendizado contínuo e na solução de problemas de forma prática, eficiente e inteligente.",
+  },
+  {
+    title:
+      "Gosto de trabalhar em equipe, aprender e ensinar coisas novas às pessoas sendo colaborativo com a equipe.",
   },
 ];
 

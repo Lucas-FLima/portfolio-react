@@ -1,25 +1,43 @@
 "use client";
 
 import { useScrollTop } from "@/hooks/use-scroll-top";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { useState, useContext } from "react";
+import Image from "next/image";
+import { useContext } from "react";
 
 import { NavMobileContext } from "@/context/NavMobile";
 
-export default function NavBar() {
+interface NavBarProps {
+  activeSection: string;
+}
+
+export default function NavBar({activeSection}: NavBarProps) {
   const { setOpen } = useContext(NavMobileContext);
   const scrolled = useScrollTop();
-  const [localState, setLocalState] = useState<String>("sobre");
 
+  const handleClick = (sectionId: string) => (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  event.preventDefault();
+  const section = document.getElementById(sectionId);
+  if (section) {
+    const topOffset = section.offsetTop;
+    window.scrollTo({ top: topOffset - 100, behavior: 'smooth' });
+  }
+};
+  
   return (
     <div
       className={cn(
         "z-50 bg-[#161616] fixed transition-all top-0 flex md:justify-between justify-center items-center p-4 px-6 h-[100px] w-[100px]  md:w-[1140px] rounded-b-[30px] shadow-navBar",
-        scrolled && "md:w-full md:px-[210px] rounded-full mt-4 md:mt-0 md:rounded-none shadow-navBar"
+        scrolled &&
+          "md:w-full md:px-[210px] rounded-full mt-4 md:mt-0 md:rounded-none shadow-navBar"
       )}
     >
-      <Image src={"/logo.svg"} className="w-[45px] h-[45px] md:w-[70px] md:h-[70px]" width={70} height={70} alt="Logo"
+      <Image
+        src={"/logo.svg"}
+        className="w-[45px] h-[45px] md:w-[70px] md:h-[70px]"
+        width={70}
+        height={70}
+        alt="Logo"
         onClick={() => setOpen(true)}
       />
 
@@ -30,9 +48,11 @@ export default function NavBar() {
               href="#about"
               className={cn(
                 "font-bold text-[20px] transition-colors duration-[.8s] ease-in-out",
-                localState === "sobre" && "text-[#3CE37C]"
+                activeSection === "about" ? "text-[#3CE37C]" : "text-[#B9B9B9]"
+                
+                // localState === "sobre" && "text-[#3CE37C]"
               )}
-              onClick={() => setLocalState("sobre")}
+              onClick={() => handleClick("about")}
             >
               Sobre
             </a>
@@ -42,9 +62,9 @@ export default function NavBar() {
               href="#soft"
               className={cn(
                 "font-bold text-[20px] transition-colors duration-[.8s] ease-in-out",
-                localState === "soft" && "text-[#3CE37C]"
+                activeSection === "soft" ? "text-[#3CE37C]" : ""
               )}
-              onClick={() => setLocalState("soft")}
+              onClick={() => handleClick("soft")}
             >
               Soft Skills
             </a>
@@ -54,9 +74,9 @@ export default function NavBar() {
               href="#hard"
               className={cn(
                 "font-bold text-[20px] transition-colors duration-[.8s] ease-in-out",
-                localState === "hard" && "text-[#3CE37C]"
+                // localState === "hard" && "text-[#3CE37C]"
               )}
-              onClick={() => setLocalState("hard")}
+              // onClick={() => setLocalState("hard")}
             >
               Hard skills
             </a>
@@ -66,9 +86,9 @@ export default function NavBar() {
               href="#metas"
               className={cn(
                 "font-bold text-[20px] transition-colors duration-[.8s] ease-in-out",
-                localState === "metas" && "text-[#3CE37C]"
+                // localState === "metas" && "text-[#3CE37C]"
               )}
-              onClick={() => setLocalState("metas")}
+              // onClick={() => setLocalState("metas")}
             >
               Metas
             </a>
@@ -78,9 +98,9 @@ export default function NavBar() {
               href="#portfolio"
               className={cn(
                 "font-bold text-[20px] transition-colors duration-[.8s] ease-in-out",
-                localState === "portfolio" && "text-[#3CE37C]"
+                // localState === "portfolio" && "text-[#3CE37C]"
               )}
-              onClick={() => setLocalState("portfolio")}
+              // onClick={() => setLocalState("portfolio")}
             >
               Portfolio
             </a>
