@@ -27,9 +27,9 @@ export default function NavBar({activeSection}: NavBarProps) {
   return (
     <div
       className={cn(
-        "z-50 bg-[#161616] fixed transition-all top-0 flex md:justify-between justify-center items-center p-4 px-6 h-[100px] w-[100px]  md:w-[1140px] rounded-b-[30px] shadow-navBar",
+        "z-50 bg-[#161616] fixed transition-all top-0 flex md:justify-between justify-center items-center p-4 px-6 h-[100px] w-[100px] lg:w-[1140px] rounded-b-[30px] shadow-navBar",
         scrolled &&
-          "md:w-full md:px-[210px] rounded-full mt-4 md:mt-0 md:rounded-none shadow-navBar"
+          "lg:w-full lg:px-[210px] rounded-full mt-4 lg:mt-0 lg:rounded-none shadow-navBar"
       )}
     >
       <Image
@@ -41,7 +41,7 @@ export default function NavBar({activeSection}: NavBarProps) {
         onClick={() => setOpen(true)}
       />
 
-      <nav className="md:block hidden">
+      <nav className="lg:block hidden">
         <ul className="flex items-center gap-8 text-[#B9B9B9]">
           <li className="">
             <a
