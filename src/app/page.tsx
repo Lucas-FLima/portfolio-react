@@ -70,7 +70,7 @@ export default function Home() {
           Soluções inteligentes para problemas complexos.
         </h3>
         <div className="flex flex-col md:flex-row item-center justify-center gap-5 mt-4">
-          <button className="p-1 flex justify-center items-center gap-1">
+          {/* <button className="p-1 flex justify-center items-center gap-1">
             <Image
               src={"/ddoc.svg"}
               className="w-[25px] h-[25px] md:w-[30px] md:h-[30px] color-[#B9B9B9]"
@@ -81,11 +81,11 @@ export default function Home() {
             <a href="#about" className="text-[#B9B9B9] text-[20px]">
               Curriculo
             </a>
-          </button>
+          </button> */}
           <button className="p-1 flex justify-center items-center gap-1">
             <Image
               src={"/linkedin.svg"}
-              className="w-[25px] h-[25px] md:w-[30px] md:h-[30px] color-[#B9B9B9]"
+              className="w-[25px] h-[25px] md:w-[30px] md:h-[30px] color-[#B9B9B9] mb-2"
               width={70}
               height={70}
               alt="Linkedin icon"
@@ -97,7 +97,7 @@ export default function Home() {
           <button className="p-1 flex justify-center items-center gap-1">
             <Image
               src={"/github.svg"}
-              className="w-[25px] h-[25px] md:w-[30px] md:h-[30px] color-[#B9B9B9]"
+              className="w-[25px] h-[25px] md:w-[30px] md:h-[30px] color-[#B9B9B9] mb-2"
               width={70}
               height={70}
               alt="Github icon"
